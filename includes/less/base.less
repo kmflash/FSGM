@@ -1,0 +1,411 @@
+/* Copyright 2012 Four Seasons Grounds Management, Inc. */
+// variables
+@body-padding: 50px;
+
+	//de colores
+	@page-bg: #e9e8d3;
+
+	@link-color: #0a8bab;
+	
+	@nav-bg: #f3f3e6;
+	@nav-shadow: #dcdbc7;
+	@nav-text: #7b7b63;
+	
+	@subnav-bg: #fdfdf8;
+	@subnav-text: #999986;
+	
+	@cw-text: #65654b;
+	@cw-text-light: #94947d;
+	
+	@footer-bg: #d6d5bc;
+	@footer-shadow: #edede2;
+	@footer-tel: #979783;
+	@footer-border: @nav-shadow;
+	@footer-border-shadow: #eee;
+
+	@pg-shadow: #8c8e67;
+
+
+//mixins
+.gentium {
+	font-family: 'Gentium Book Basic', Georgia;
+	text-rendering: optimizeLegibility;
+	zoom: 1;
+	}
+
+.textShadow(@color: #fff) {
+	text-shadow: 0px 1px 0px @color;
+}
+
+// general styles
+
+* { 
+	margin: 0;
+	padding: 0;
+}
+
+html, body{
+	height:  100%;
+	}
+
+.clearfix:after { // to clear floats without extra markup
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+
+
+// general declarations
+
+.left{
+	float: left;
+}
+
+.oneThird{
+	width: 33%;
+}
+
+.twoThirds{
+	width: 66%;
+}
+
+.cl{
+	clear: both;
+}
+
+body{
+	background: url('../../img/fsgm_bg.jpg') #8c8f64;
+	font-size: 16px;
+	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+a{
+	text-decoration: none;
+	color: @link-color;
+	border: none;
+}
+
+a:hover{
+	text-decoration: underline;
+}
+
+a:visited{
+	color: desaturate(@link-color, 50%);
+}
+
+img{
+	border: none;
+}
+
+div#wrapper {
+	width: 960px;
+	margin: auto;
+	background-color: @page-bg;
+	border: 1px solid #f3f2e5;
+	
+}
+	
+	header{
+		h1#logo{
+			width: 340px;
+			display: block;
+			margin: auto;
+			padding: 1.25em 0;
+		}
+
+		nav#topnav{
+			position: relative;
+			.gentium;
+
+			ul#tn{
+				background-color: @nav-bg;
+				display: block;
+				border-top: 1px solid #fff;
+				border-bottom: 1px solid @page-bg;
+				box-shadow: 0px -1px 0 0 @nav-shadow;
+				height: 3.375em;  //3.5 em - 2px for borders
+
+				li{
+					list-style: none;
+					float: left;
+
+					a{
+						font-size: 1em;
+						text-transform: uppercase;
+						color: @nav-text;
+						padding: 1.1875em 16px;
+						float: left;
+						line-height: 1em;
+					}
+
+					a.active{
+						background: url('../../img/fsgm_subnavCarat.gif') center bottom no-repeat;
+						padding-bottom: 1.25em;
+					}
+
+					ul.sub{
+						clear: left; //only needed for IE ಠ_ಠ
+						display: none;
+						height: 2em;
+						position: absolute;
+						top: 3.5em;
+						list-style: none;
+						width: auto;
+
+						a{
+							font-size: .875em;
+							text-transform: none;
+							color: @subnav-text;
+							padding: .625em 1em .625em 0;
+
+						}
+					}
+				}
+			}
+		
+			#subnavBg{
+				height: 2.0625em;
+				position: absolute;
+				background-color: @subnav-bg;
+				display: block;
+				width: 100%;
+				top: 3.5em;
+			}
+		}
+	} // END header 
+
+	section#contentWell{
+		min-height: 200px;
+		padding: 3.125em @body-padding 3.125em @body-padding;
+		
+		h2, h4{
+			.gentium;
+			font-weight: normal;
+			font-size: 2.3125em;
+			color: @cw-text;
+			margin-bottom: 1em;
+
+		}
+
+		h3{
+			.gentium;
+			font-style: italic;
+			font-size: 1.75em;
+			font-weight: normal;
+			color: @cw-text;
+			margin-bottom: .5em;
+		}
+
+		h4{
+			font-size: 1.25em;
+			margin-bottom: .5em;
+		}
+
+		p, ul, ol{
+			color: @cw-text;
+			font-size: .875em;
+			line-height: 1.3125em;
+			margin-bottom: 1em;
+		}
+
+		p.intro{
+			font-size: 1.125em;
+			margin-bottom: 2em;
+		}
+
+		ul, ol{
+			list-style-position: inside;
+			color: @cw-text-light;
+
+			li{
+				color: @cw-text;
+				margin-bottom: 1em;
+				font-size: .875em;
+				padding-left: 1em;
+				text-indent: -1em;
+			}
+		}
+	} // END #contentWell
+
+	body.landscaping #contentWell{ // landscaping-specific styles
+		background: url('../../img/fsgm_landscaping-bg.gif') right top no-repeat;
+
+	}
+
+	body.home #contentWell{  // home-specific styles
+		h2{
+			font-style: italic;
+			text-align: center;
+			margin-bottom: 0;
+		}
+
+		p{
+			width: 65.625%;
+			margin: 1em auto 0 auto;
+		}
+
+		h3{
+			font-size: 2em;
+			color: @cw-text-light;
+			margin: 1em auto 0 auto;
+			width: 65.625%;
+		}
+	}
+
+	div.gallery-lg{
+		width: 650px;
+		margin: 2em auto;
+		display: block;
+
+		button{
+			padding-top: 88px;
+			padding-left: 88px;
+			margin-top: -44px;	
+			cursor: pointer;		
+		}
+
+		.gallery-backButton{
+			background: url("../../img/galNav-lg.png") no-repeat;
+			margin-left: -60px;
+		}
+
+		.gallery-backButton:hover{
+			background-position: 0 -86px;
+		}
+
+		.gallery-fwdButton{
+			background: url("../../img/galNav-lg.png") no-repeat -88px 0;
+			margin-right: -60px;
+		}
+
+		.gallery-fwdButton:hover{
+			background-position: -88px -86px;
+		}
+
+
+	}
+
+	div.gallery-sm{
+		width: 540px;
+		display: block;
+		min-height: 400px !important;
+		margin-left: 20px;
+
+		img{
+			width: 468px;
+		}
+
+		button{
+			padding-top: 70px;
+			padding-left: 60px;
+			margin-top: -70px;
+			cursor: pointer;
+		}
+
+		.gallery-backButton{
+			background: url("../../img/galNav-sm.png") no-repeat -11px -8px;
+			margin-left: -33px;
+		}
+
+		.gallery-fwdButton{
+			background: url("../../img/galNav-sm.png") no-repeat -96px -8px;
+			margin-right: 16px;
+		}
+	}
+
+	div.photoGallery{
+		position: relative;
+		min-height: 480px;
+		height: auto !important;
+		height: 480px;
+
+		ul{
+		
+			li{
+				position: absolute;
+
+				img{
+					display: none;
+					border: 10px solid #fff;
+					box-shadow: 0 0 5px -2px @pg-shadow;
+				}
+			}
+		}
+
+		li{
+			list-style: none;
+		}
+
+		nav{
+			position: absolute;
+			top: 50%;
+			width: 100%;
+			z-index: 10000;
+
+			.gallery-backButton{
+				float: left;
+				border: 0;
+				height: 0;
+				width: 0;
+				overflow: hidden;
+			}
+
+			.gallery-fwdButton{
+				float: right;
+				border: 0;
+				height: 0;
+				width: 0;
+				overflow: hidden;
+			}
+		}
+	}
+
+	footer{
+		background: @footer-bg;
+		text-align: center;
+		padding-top: 2.6875em;
+		padding-bottom: 2.6875em;
+		border-top: solid 1px @footer-border;
+		box-shadow: inset 0 1px 1px @footer-border-shadow;
+		margin-left: -1px;
+		margin-right: -1px;
+
+
+		p, small{
+			color: @nav-text;
+			.textShadow(@footer-shadow);
+			font-size: .75em;
+		}
+
+		p.tel{
+			font-size: 2em;
+			.gentium;
+			color: @footer-tel;
+		}
+
+		.social{
+			list-style: none;
+			display: inline;
+
+			li{
+				border-right: solid 1px @footer-border;
+
+				&:last-item{
+					border-right: none;
+				}
+			}
+		}
+
+
+	}
+
+	body.sub p{
+		font-size: 1.125em !important;
+		line-height: 1.6875em !important;
+		width: inherit !important;
+		padding: @body-padding inherit @body-padding inherit;
+	}
+
+

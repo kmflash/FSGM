@@ -1,0 +1,307 @@
+/* Copyright 2012 Four Seasons Grounds Management, Inc. */
+// variables
+@body-padding: 50px;
+
+	//de colores
+	@page-bg: #e9e8d3;
+
+	@link-color: #0a8bab;
+	
+	@nav-bg: #f3f3e6;
+	@nav-shadow: #dcdbc7;
+	@nav-text: #7b7b63;
+	
+	@subnav-bg: #fdfdf8;
+	@subnav-text: #999986;
+	
+	@cw-text: #65654b;
+	@cw-text-light: #94947d;
+	
+	@footer-bg: #d6d5bc;
+	@footer-shadow: #edede2;
+	@footer-tel: #979783;
+	@footer-border: @nav-shadow;
+	@footer-border-shadow: #eee;
+
+	@pg-shadow: #8c8e67;
+
+
+//mixins
+.gentium {
+	font-family: 'Gentium Book Basic', Georgia;
+	}
+
+.textShadow(@color: #fff) {
+	text-shadow: 0px 1px 0px @color;
+}
+
+// general styles
+
+* { 
+	margin: 0;
+	padding: 0;
+}
+
+html, body{
+	height:  100%;
+	}
+
+.clearfix:after { // to clear floats without extra markup
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+
+
+// general declarations
+
+body{
+	background: url('../../img/fsgm_bg.jpg') #8c8f64;
+	font-size: 16px;
+	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+a{
+	text-decoration: none;
+	color: @link-color;
+}
+
+a:hover{
+	text-decoration: underline;
+}
+
+a:visited{
+	color: desaturate(@link-color, 50%);
+}
+
+// begin wrapper
+
+div#wrapper {
+	width: 960px;
+	margin: auto;
+	background-color: @page-bg;
+	border: 1px solid #f3f2e5;
+	
+}
+	
+	header{
+		h1#logo{
+			width: 340px;
+			display: block;
+			margin: auto;
+			padding: 1.25em 0;
+		}
+		
+		nav#topnav{
+			position: relative;
+
+			
+			ul#tn{
+				background-color: @nav-bg;
+				display: block;
+				border-top: 1px solid #fff;
+				box-shadow: 0px -1px 0 0 @nav-shadow;
+				height: 3.5em;
+				position: relative;
+				
+				li{ 
+					list-style: none;
+					position: relative;
+										
+						a{
+						.gentium;
+						font-size: 1em;
+						text-transform: uppercase;
+						color: @nav-text;
+						text-decoration: none;
+						padding: 1.25em 16px;
+						float: left;
+						display: block;
+						line-height: 1em;
+						position: relative;
+						border-right: solid 1px black;
+						}
+						
+						a:hover{
+							text-decoration: underline;
+						}
+				}
+			} // END ul
+			nav#subnav{
+					height: 2em;
+					position: absolute;
+					background-color: @subnav-bg;
+					display:block;
+					width: 100%;
+					top: 3.5em;
+					border-top: 1px solid @page-bg;
+
+					span#carat{
+						background: url('../../img/fsgm_subnavCarat.gif') no-repeat;
+						display: block;
+						width: 19px;
+						height: 11px;
+						top: -11px;
+						position: relative;
+					}
+
+					ul{
+						list-style: none;
+					}
+
+					li{
+						float: left;
+						
+						a{
+						.gentium;					
+						font-size:  .875em;
+						text-transform: none;
+						color: @subnav-text;
+						padding: .625em 1em;
+						}
+					
+				} //end #subnav
+			}
+		} // END #topnav
+	
+	} // END header 
+
+	section#contentWell{
+		margin-top: 3.125em;
+		min-height: 200px;
+		padding-bottom: 3.125em;
+		
+		h2{
+			.gentium;
+			font-style: italic;
+			font-weight: normal;
+			font-size: 2.3125em;
+			color: @cw-text;
+			text-align: center;
+		}
+
+		h3{
+			.gentium;
+			font-style: italic;
+			color: @cw-text-light;
+			font-size: 2em;
+			font-weight: normal;
+			margin: 1em auto 0 auto;
+			width: 65.625%;
+		}
+
+		p{
+			width: 65.625%;
+			margin: 1em auto 0 auto;
+			color: @cw-text;
+			font-size: .875em;
+			line-height: 1.3125em;
+
+		}
+	} // END #contentWell
+
+	div.gallery-lg{
+		width: 650px;
+		margin: 2em auto;
+
+		button{
+			padding-top: 88px;
+			padding-left: 88px;
+			margin-top: -44px;	
+			cursor: pointer;		
+		}
+
+		.gallery-backButton{
+			background: url("../../img/galNav-lg.png") no-repeat;
+			margin-left: -60px;
+		}
+
+		.gallery-backButton:hover{
+			background-position: 0 -86px;
+		}
+
+		.gallery-fwdButton{
+			background: url("../../img/galNav-lg.png") no-repeat -88px 0;
+			margin-right: -60px;
+		}
+
+		.gallery-fwdButton:hover{
+			background-position: -88px -86px;
+		}
+
+
+	}
+
+	div.photoGallery{
+		position: relative;
+		min-height: 480px;
+		ul{
+		
+			li{
+				position: absolute;
+
+				img{
+					display: none;
+					border: .625em solid #fff;
+					box-shadow: 0 0 5px -2px @pg-shadow;
+				}
+			}
+		}
+
+		li{
+			list-style: none;
+		}
+
+		nav{
+			position: absolute;
+			top: 50%;
+			width: 100%;
+			z-index: 10000;
+
+			.gallery-backButton{
+				float: left;
+				border: 0;
+				height: 0;
+				width: 0;
+				overflow: hidden;
+			}
+
+			.gallery-fwdButton{
+				float: right;
+				border: 0;
+				height: 0;
+				width: 0;
+				overflow: hidden;
+			}
+		}
+	}
+
+	footer{
+		background: @footer-bg;
+		text-align: center;
+		padding-top: 2.6875em;
+		padding-bottom: 2.6875em;
+		border-top: solid 1px @footer-border;
+		box-shadow: inset 0 1px 1px @footer-border-shadow;
+		margin-left: -1px;
+		margin-right: -1px;
+
+
+		p, small{
+			color: @nav-text;
+			.textShadow(@footer-shadow);
+			font-size: .75em;
+		}
+
+		p.tel{
+			font-size: 2em;
+			.gentium;
+			color: @footer-tel;
+		}
+
+
+	}
+
+
